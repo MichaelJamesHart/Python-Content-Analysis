@@ -1,7 +1,15 @@
 #Michael Hart
 
 """
-This program opens a text document and get information about it.
+This program opens a text document and provides the following information:
+1) The total character count.
+2) The total word count.
+3) The 20 most common words, *including* stop words.
+4) The 20 most common words, *excluding* stop words.
+
+This program can be used as part of a large project to quantitatively analyze the topic or sentiment of a document,
+or for something simpler such as making sure you don't overuse a particular adjective in a cover letter, research paper,
+or any other important body of text.
 """
 
 def remove_characters(full_str, remove_chars):
@@ -41,8 +49,8 @@ def remove_stop_words(word_list, stop_words):
     return clean_list
 
 
-# Open file for reading.
-text_file = open("text_files/cover_letter.txt")
+# Open the file for reading; rewrite what is inside the *open("")* double quotes to analyze a different file.
+text_file = open("text_files/usdeclar.txt")
 
 # Read content from text file (content variable is a string).
 content = text_file.read()
@@ -69,14 +77,14 @@ import collections
 
 word_counter = collections.Counter(word_list)
 top_20_words = word_counter.most_common(20)
-print("The 20 most common words are " + str(top_20_words))
+print("The 20 most common words (*including* stop word) are " + str(top_20_words))
 
 
 #
 # Get rid of stop words.
 #
 
-# Get list of stop words.
+# Get list of stop words. Feel free to add or remove stop words from the stop_words.txt file as necessary.
 stop_words_file = open("text_files/stop_words.txt")
 stop_words_content = stop_words_file.read()
 stop_words = stop_words_content.split()
@@ -85,7 +93,7 @@ stop_words = stop_words_content.split()
 clean_word_list = remove_stop_words(word_list, stop_words)
 word_counter = collections.Counter(clean_word_list)
 top_20_words = word_counter.most_common(20)
-print("The 20 most common words are " + str(top_20_words))
+print("The 20 most common words (*excluding* stop words) are " + str(top_20_words))
 
 
 # Close the file.
