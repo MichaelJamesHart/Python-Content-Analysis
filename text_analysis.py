@@ -42,7 +42,7 @@ def remove_stop_words(word_list, stop_words):
 
 
 # Open file for reading.
-text_file = open("text_files/usdeclar.txt")
+text_file = open("text_files/cover_letter.txt")
 
 # Read content from text file (content variable is a string).
 content = text_file.read()
