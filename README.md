@@ -1,6 +1,8 @@
 # Python-Content-Analysis
 A simple script to analyze the content of text documents.
 
+Program code is in the file "text_analysis.py".
+
 This program opens a text document and provides the following information:
 1) The total character count.
 2) The total word count.
